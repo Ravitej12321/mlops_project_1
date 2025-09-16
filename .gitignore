@@ -12,3 +12,4 @@ mlruns/
 logs/
 mlops_project_1.egg-info/
 gen-lang-client-0287658327-67a4edc56901.json
+secrets.txt
