@@ -1,0 +1,29 @@
+
+
+cd customs_jenkins
+docker login
+docker build
+docker build -t jenkins-dind .
+docker images
+docker run -d --name jenkins-dind ^
+--privileged ^
+-p 8080:8080 -p 50000:5000 ^
+-v //var/run/docker.sock:/var/run/docker.sock ^
+-v jenkins_home:/var/jenkins_home ^
+jenkins-dind
+output : d669abe90dc419d5d81525c0034e3be4bcabf15156df9f367e3334373af217e3
+docker ps
+docker logs jenkins-dind
+
+
+docker exec -u root -it jenkins-dind bash
+apt update -y
+apt install -y python3
+python3 --version
+ln -s /usr/bin/python3 /usr/bin/python
+python --version
+apt install -y python3-pip
+apt install -y python3-venv
+exit
+
+docker restart jenkins-dind
