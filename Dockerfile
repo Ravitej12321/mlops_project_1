@@ -4,7 +4,7 @@ FROM python:slim
         PYTHONBUFFERED=1 
     WORKDIR /app
     
-    RUN apt-get update && apt-get -install -y -recommends \
+    RUN apt-get update && apt-get install -y -recommends \
         libgompl \
         && apt-get clean \
         && rm -rf /var/lib/apt/lists/*
