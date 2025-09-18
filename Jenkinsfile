@@ -16,7 +16,7 @@ pipeline{
                 }
             }
         }
-        stages{
+        
         stage('creating docker container and building in Jenkins......'){
             steps{
                 script{
@@ -97,4 +97,5 @@ pipeline{
         // }
         
     }
-}
+} 
+ 
