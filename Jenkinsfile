@@ -23,7 +23,7 @@ pipeline{
                     echo 'Setting up virtual environment and installing dependencies with uv...'
                     sh '''
                     # Install uv (official way)
-                    curl -LsSf https://astral.sh/uv/install.sh | sh
+                    curl -LsSf https://astral.sh/uv/install.sh | sh -s -- --prefix /usr/local
 
                     # Add uv to PATH (installs in /root/.cargo/bin by default)
                     export PATH="/root/.cargo/bin:$PATH"
