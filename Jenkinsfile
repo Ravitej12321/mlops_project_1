@@ -38,6 +38,7 @@ pipeline{
                     script{
                         echo 'Building and Pushing Docker Image to GCR.............'
                         sh '''
+                        echo $GOOGLE_APPLICATION_CREDENTIALS
                         export PATH=$PATH:${GCLOUD_PATH}
 
 
