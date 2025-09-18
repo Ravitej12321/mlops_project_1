@@ -17,25 +17,15 @@ pipeline{
             }
         }
         
-        stage('Creating virtual environment and installing dependencies with uv'){
+        stage('Creating virtual environment and installing dependencies....'){
             steps{
                 script{
-                    echo 'Setting up virtual environment and installing dependencies with uv...'
+                    echo 'Setting up virtual environment and installing dependencies...'
                     sh '''
-                    # Install uv (official way)
-                    curl -LsSf https://astral.sh/uv/install.sh | sh -s -- --prefix /usr/local
-
-                    # Add uv to PATH (installs in /root/.cargo/bin by default)
-                    export PATH="/root/.cargo/bin:$PATH"
-
-                    # Create a virtual environment in the Jenkins workspace
-                    uv venv ${VENV_DIR}
-
-                    # Upgrade pip inside venv
-                    ${VENV_DIR}/bin/pip install --upgrade pip
-
-                    # Install project dependencies in editable mode using uv
-                    ${VENV_DIR}/bin/uv pip install -e .
+                    python -m venv ${VENV_DIR}
+                    . ${VENV_DIR}/bin/activate
+                    pip install --upgrade pip
+                    pip install -e .
                     '''
                 }
             }
