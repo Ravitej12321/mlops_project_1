@@ -16,7 +16,21 @@ pipeline{
                 }
             }
         }
-
+        stages{
+        stage('creating docker container and building in Jenkins......'){
+            steps{
+                script{
+                    echo 'creating docker container and building in Jenkins......'
+                    sh'''
+                    pip install uv 
+                    uv venv
+                    ${VENV_DIR}/bin/activate
+                    pip install --upgrade pip 
+                    uv pip install -e .
+                    '''
+                }
+            }
+        }
         // stage('Setting up our Virtual Environment and Installing dependancies'){
         //     steps{
         //         script{
