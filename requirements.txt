@@ -4,7 +4,11 @@ google-cloud-storage
 scikit-learn
 pyyaml
 python-dotenv
-ipykernel
 seaborn
 matplotlib
 statsmodels
+imbalanced-learn
+lightgbm
+mlflow
+flask
+
