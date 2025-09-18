@@ -9,7 +9,7 @@ setup(
     name = 'MLops_project_1',
     version = "0.1",
     author = 'Ravi Teja',
-    package = find_packages(),
+    package = find_packages("src","config","utils"),
     install_requires = requirements
 
 )
