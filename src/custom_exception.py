@@ -10,9 +10,12 @@ class CustomException(Exception):
     
     @staticmethod
     def get_detailed_error_message(error_message,error_details:sys):
-        _, _ ,exc_tb = error_details.exc_info()
-        filename = exc_tb.tb_frame.f_code.co_filename
-        line_no = exc_tb.tb_lineno
+        try:
+            _, _ ,exc_tb = error_details.exc_info()
+            filename = exc_tb.tb_frame.f_code.co_filename
+            line_no = exc_tb.tb_lineno
+        except Exception as e:
+            exc_type, exc_value, exc_traceback = sys.exc_info()
 
         return f'Error in {filename}, line {line_no} : {error_message}'
     

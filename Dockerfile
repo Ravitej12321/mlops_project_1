@@ -13,6 +13,5 @@ FROM python:slim
     RUN pip install --no-cache-dir -r requirements.txt
     RUN  pip install --no-cache-dir -e .
     ENV PYTHONPATH=/app
-    RUN python pipeline/training_pipeline.py
     EXPOSE 5000
     CMD [ "python", "application.py" ]
