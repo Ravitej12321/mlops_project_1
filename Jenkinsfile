@@ -54,7 +54,7 @@ pipeline{
             steps {
                 withCredentials([file(credentialsId: 'gcp-key', variable: 'GOOGLE_APPLICATION_CREDENTIALS')]) {
                     sh '''
-                    docker run -e GOOGLE_APPLICATION_CREDENTIALS=/tmp/key.json -v "C:\Users\ADMIN\Desktop\Mlops\Mlops_project_1\gen-lang-client-0287658327-67a4edc56901.json":/tmp/key.json:ro gcr.io/gen-lang-client-0287658327/ml-project:latest python pipeline/training_pipeline.py
+                    docker run -e GOOGLE_APPLICATION_CREDENTIALS=/tmp/key.json -v "C:\\Users\\ADMIN\\Desktop\\Mlops\\Mlops_project_1\\gen-lang-client-0287658327-67a4edc56901.json:/tmp/key.json:ro" gcr.io/gen-lang-client-0287658327/ml-project:latest python pipeline/training_pipeline.py
                     '''
                 }
             }
